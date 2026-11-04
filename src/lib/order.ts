@@ -9,10 +9,10 @@ export type CartItem = {
   kind: "marmita" | "product";
   productId: string;
   name: string;
-  sizeCode?: string;
-  sizeLabel?: string;
-  sides?: string[];
-  notes?: string;
+  sizeCode?: string | undefined;
+  sizeLabel?: string | undefined;
+  sides?: string[] | undefined;
+  notes?: string | undefined;
   unitPrice: number;
   qty: number;
 };
@@ -36,12 +36,12 @@ export type Customer = {
   name: string;
   phone: string;
   fulfillment: Fulfillment;
-  street?: string;
-  number?: string;
-  neighborhood?: string;
+  street?: string | undefined;
+  number?: string | undefined;
+  neighborhood?: string | undefined;
   payment: Payment;
-  changeFor?: string;
-  notes?: string;
+  changeFor?: string | undefined;
+  notes?: string | undefined;
 };
 
 export const brl = (v: number) =>

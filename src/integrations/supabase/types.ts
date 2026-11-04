@@ -14,16 +14,159 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      products: {
+        Row: {
+          available: boolean
+          category: string
+          created_at: string
+          description: string
+          id: string
+          image_url: string | null
+          name: string
+          price: number | null
+          sort_order: number
+        }
+        Insert: {
+          available?: boolean
+          category: string
+          created_at?: string
+          description?: string
+          id?: string
+          image_url?: string | null
+          name: string
+          price?: number | null
+          sort_order?: number
+        }
+        Update: {
+          available?: boolean
+          category?: string
+          created_at?: string
+          description?: string
+          id?: string
+          image_url?: string | null
+          name?: string
+          price?: number | null
+          sort_order?: number
+        }
+        Relationships: []
+      }
+      settings: {
+        Row: {
+          close_time: string
+          delivery_enabled: boolean
+          delivery_fee: number
+          delivery_info: string
+          force_closed: boolean
+          hours_text: string
+          id: number
+          open_days: number[]
+          open_time: string
+          pickup_enabled: boolean
+        }
+        Insert: {
+          close_time?: string
+          delivery_enabled?: boolean
+          delivery_fee?: number
+          delivery_info?: string
+          force_closed?: boolean
+          hours_text?: string
+          id?: number
+          open_days?: number[]
+          open_time?: string
+          pickup_enabled?: boolean
+        }
+        Update: {
+          close_time?: string
+          delivery_enabled?: boolean
+          delivery_fee?: number
+          delivery_info?: string
+          force_closed?: boolean
+          hours_text?: string
+          id?: number
+          open_days?: number[]
+          open_time?: string
+          pickup_enabled?: boolean
+        }
+        Relationships: []
+      }
+      sides: {
+        Row: {
+          available: boolean
+          id: string
+          name: string
+          sort_order: number
+        }
+        Insert: {
+          available?: boolean
+          id?: string
+          name: string
+          sort_order?: number
+        }
+        Update: {
+          available?: boolean
+          id?: string
+          name?: string
+          sort_order?: number
+        }
+        Relationships: []
+      }
+      sizes: {
+        Row: {
+          available: boolean
+          code: string
+          label: string
+          price: number
+          sort_order: number
+        }
+        Insert: {
+          available?: boolean
+          code: string
+          label: string
+          price: number
+          sort_order?: number
+        }
+        Update: {
+          available?: boolean
+          code?: string
+          label?: string
+          price?: number
+          sort_order?: number
+        }
+        Relationships: []
+      }
+      user_roles: {
+        Row: {
+          id: string
+          role: Database["public"]["Enums"]["app_role"]
+          user_id: string
+        }
+        Insert: {
+          id?: string
+          role: Database["public"]["Enums"]["app_role"]
+          user_id: string
+        }
+        Update: {
+          id?: string
+          role?: Database["public"]["Enums"]["app_role"]
+          user_id?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
     }
     Functions: {
-      [_ in never]: never
+      has_role: {
+        Args: {
+          _role: Database["public"]["Enums"]["app_role"]
+          _user_id: string
+        }
+        Returns: boolean
+      }
     }
     Enums: {
-      [_ in never]: never
+      app_role: "admin" | "user"
     }
     CompositeTypes: {
       [_ in never]: never
@@ -150,6 +293,8 @@ export type CompositeTypes<
 
 export const Constants = {
   public: {
-    Enums: {},
+    Enums: {
+      app_role: ["admin", "user"],
+    },
   },
 } as const

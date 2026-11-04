@@ -34,7 +34,7 @@ export function CartSheet({ menu }: { menu: Menu }) {
   const [fulfillment, setFulfillment] = useState<Fulfillment>(s.delivery_enabled ? "delivery" : "pickup");
   const [payment, setPayment] = useState<Payment>("Pix");
   const [form, setForm] = useState<Form>({ name: "", phone: "", street: "", number: "", neighborhood: "", notes: "", changeFor: "" });
-  const [errors, setErrors] = useState<Record<string, string>>({});
+  const [errors, setErrors] = useState<Partial<Record<keyof Form, string>>>({});
   const [sent, setSent] = useState<string | null>(null);
 
   const totals = computeTotals(cart.items, fulfillment, s.delivery_fee);
@@ -64,7 +64,7 @@ export function CartSheet({ menu }: { menu: Menu }) {
       const d = deliverySchema.safeParse(form);
       if (!d.success) d.error.issues.forEach((i) => (errs[i.path[0] as string] = i.message));
     }
-    setErrors(errs);
+    setErrors(errs as Partial<Record<keyof Form, string>>);
     if (Object.keys(errs).length) return;
     if (unavailable.length) return;
 
@@ -284,7 +284,7 @@ function Totals({ totals, fulfillment }: { totals: ReturnType<typeof computeTota
   );
 }
 
-function Field({ label, id, error, children }: { label: string; id: string; error?: string; children: React.ReactNode }) {
+function Field({ label, id, error, children }: { label: string; id: string; error?: string | undefined; children: React.ReactNode }) {
   return (
     <div>
       <label htmlFor={id} className="mb-1.5 block text-sm font-semibold">{label}</label>

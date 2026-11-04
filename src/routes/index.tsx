@@ -85,7 +85,7 @@ function Header() {
   );
 }
 
-function OpenBadge({ menu }: { menu?: Menu }) {
+function OpenBadge({ menu }: { menu?: Menu | undefined }) {
   if (!menu) return <span className="inline-block h-8 w-44 animate-pulse rounded-full bg-ink-foreground/10" />;
   const open = isOpenNow(menu.settings);
   return (
@@ -97,7 +97,7 @@ function OpenBadge({ menu }: { menu?: Menu }) {
   );
 }
 
-function Hero({ menu }: { menu?: Menu }) {
+function Hero({ menu }: { menu?: Menu | undefined }) {
   return (
     <section className="relative overflow-hidden bg-ink text-ink-foreground">
       <img
@@ -272,7 +272,7 @@ function MenuSkeleton() {
   );
 }
 
-function Location({ menu }: { menu?: Menu }) {
+function Location({ menu }: { menu?: Menu | undefined }) {
   return (
     <section id="localizacao" className="scroll-mt-16 bg-ink py-16 text-ink-foreground">
       <div className="mx-auto grid max-w-6xl gap-8 px-4 sm:px-6 md:grid-cols-2">

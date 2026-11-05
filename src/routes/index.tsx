@@ -65,11 +65,7 @@ function Header() {
     <header className="sticky top-0 z-40 border-b border-ink-foreground/10 bg-ink/90 text-ink-foreground backdrop-blur">
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6">
         <a href="#" className="flex items-center gap-2.5" aria-label="V&M Sabor Nobre – início">
-          <img src={logo.url} alt="" className="h-10 w-auto" height={40} />
-          <span className="font-display text-lg font-bold leading-none">
-            V&M Sabor Nobre
-            <span className="block text-[10px] font-medium uppercase tracking-[0.2em] text-primary">Comida caseira</span>
-          </span>
+          <img src={logo.url} alt="" className="h-11 w-auto" height={44} />
         </a>
         <nav className="hidden items-center gap-6 text-sm font-medium md:flex">
           <a href="#cardapio" className="hover:text-primary">Cardápio</a>

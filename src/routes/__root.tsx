@@ -80,8 +80,8 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Fogão da Cassia – Comida Caseira" },
-      { name: "description", content: "Marmitas caseiras em Vinhedo-SP. Peça pelo WhatsApp." },
+      { title: "V&M Restaurante Sabor Nobre" },
+      { name: "description", content: "Marmitas caseiras em Valinhos-SP. Peça pelo WhatsApp." },
       { name: "theme-color", content: "#1f1a15" },
     ],
     links: [

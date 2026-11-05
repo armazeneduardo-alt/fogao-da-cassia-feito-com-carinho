@@ -1,8 +1,8 @@
 // Pure order logic: totals, opening hours and the WhatsApp message.
-export const WHATSAPP_NUMBER = "5519992006242";
-export const WHATSAPP_DISPLAY = "(19) 99200-6242";
+export const WHATSAPP_NUMBER = "5519983450941";
+export const WHATSAPP_DISPLAY = "(19) 98345-0941";
 export const ADDRESS =
-  "Av. Pres. Castelo Branco, 1796 – Vila Santa Claudina, Vinhedo – SP, CEP 13284-408";
+  "Rua Ana Formágio, 38 – Valinhos – SP, CEP 13272-785";
 
 export type CartItem = {
   key: string;
@@ -85,7 +85,7 @@ export function isOpenNow(s: Pick<Settings, "open_time" | "close_time" | "open_d
 export function buildWhatsAppMessage(items: CartItem[], c: Customer, deliveryFee: number) {
   const { subtotal, fee, total } = computeTotals(items, c.fulfillment, deliveryFee);
   const lines: string[] = [];
-  lines.push("*NOVO PEDIDO – Fogão da Cassia*", "");
+  lines.push("*NOVO PEDIDO – V&M Sabor Nobre*", "");
   lines.push(`*Cliente:* ${c.name}`, `*Telefone:* ${c.phone}`, "");
   lines.push("*Itens:*");
   items.forEach((i) => {

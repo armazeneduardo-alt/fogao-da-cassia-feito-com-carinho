@@ -204,7 +204,7 @@ export function CartSheet({ menu }: { menu: Menu }) {
                 </>
               ) : (
                 <p className="rounded-xl bg-accent p-3 text-sm text-accent-foreground">
-                  Retirada na Av. Pres. Castelo Branco, 1796 – Vila Santa Claudina, Vinhedo.
+                  Retirada na Rua Ana Formágio, 38 – Valinhos.
                 </p>
               )}
               <fieldset>

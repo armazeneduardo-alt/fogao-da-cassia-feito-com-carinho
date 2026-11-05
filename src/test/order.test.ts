@@ -25,7 +25,7 @@ describe("whatsapp", () => {
     expect(msg).toContain("Farofa");
     expect(msg).toContain("Pix");
     expect(msg).toContain("R$ 59,50");
-    expect(whatsappLink(msg).startsWith("https://wa.me/5519992006242?text=")).toBe(true);
+    expect(whatsappLink(msg).startsWith("https://wa.me/5519983450941?text=")).toBe(true);
   });
 });
 

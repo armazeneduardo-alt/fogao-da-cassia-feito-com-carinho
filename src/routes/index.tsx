@@ -9,16 +9,16 @@ import { useCart } from "@/lib/cart";
 import { ADDRESS, WHATSAPP_DISPLAY, brl, isOpenNow, whatsappLink } from "@/lib/order";
 import { ProductDialog, type DialogTarget } from "@/components/site/ProductDialog";
 import { CartSheet } from "@/components/site/CartSheet";
-import logo from "@/assets/logo.png.asset.json";
+import logo from "@/assets/vm-logo.png.asset.json";
 import hero from "@/assets/hero.jpg.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Fogão da Cassia – Comida Caseira em Vinhedo | Peça sua marmita" },
-      { name: "description", content: "Marmitas caseiras em Vinhedo-SP: calabresa, feijoada, frango frito, costelinha e parmegiana. Monte sua marmita e peça pelo WhatsApp." },
-      { property: "og:title", content: "Fogão da Cassia – Comida caseira, sabor de verdade!" },
-      { property: "og:description", content: "Escolha sua marmita e peça agora pelo WhatsApp. Entrega e retirada em Vinhedo-SP." },
+      { title: "V&M Restaurante Sabor Nobre – Comida Caseira em Valinhos | Peça sua marmita" },
+      { name: "description", content: "Marmitas caseiras em Valinhos-SP: calabresa, feijoada, frango frito, costelinha e parmegiana. Monte sua marmita e peça pelo WhatsApp." },
+      { property: "og:title", content: "V&M Restaurante Sabor Nobre – Comida caseira, sabor de verdade!" },
+      { property: "og:description", content: "Escolha sua marmita e peça agora pelo WhatsApp. Entrega e retirada em Valinhos-SP." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
@@ -26,7 +26,7 @@ export const Route = createFileRoute("/")({
   component: Home,
 });
 
-const MAPS_QUERY = encodeURIComponent("Fogão da Cassia, Av. Pres. Castelo Branco, 1796, Vinhedo - SP, 13284-408");
+const MAPS_QUERY = encodeURIComponent("V&M Restaurante Sabor Nobre, Rua Ana Formágio, 38, Valinhos - SP, 13272-785");
 
 function Home() {
   const { data: menu, isLoading, error, refetch } = useMenu();
@@ -64,12 +64,8 @@ function Header() {
   return (
     <header className="sticky top-0 z-40 border-b border-ink-foreground/10 bg-ink/90 text-ink-foreground backdrop-blur">
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6">
-        <a href="#" className="flex items-center gap-2.5" aria-label="Fogão da Cassia – início">
-          <img src={logo.url} alt="" className="size-10 rounded-full object-cover" width={40} height={40} />
-          <span className="font-display text-lg font-bold leading-none">
-            Fogão da Cassia
-            <span className="block text-[10px] font-medium uppercase tracking-[0.2em] text-primary">Comida caseira</span>
-          </span>
+        <a href="#" className="flex items-center gap-2.5" aria-label="V&M Sabor Nobre – início">
+          <img src={logo.url} alt="" className="h-11 w-auto" height={44} />
         </a>
         <nav className="hidden items-center gap-6 text-sm font-medium md:flex">
           <a href="#cardapio" className="hover:text-primary">Cardápio</a>
@@ -109,7 +105,7 @@ function Hero({ menu }: { menu?: Menu | undefined }) {
       <div className="absolute inset-0 hero-scrim-mobile md:hero-scrim" />
       <div className="relative mx-auto flex min-h-[620px] max-w-6xl flex-col justify-end px-4 pb-12 pt-40 sm:px-6 md:min-h-[600px] md:justify-center md:pt-16">
         <div className="max-w-xl animate-rise">
-          <img src={logo.url} alt="Logo Fogão da Cassia – Comida Caseira" className="mb-6 hidden size-32 rounded-full object-cover md:block" width={128} height={128} />
+          <img src={logo.url} alt="Logo V&M Restaurante Sabor Nobre" className="mb-6 hidden h-28 w-auto md:block" height={112} />
           <OpenBadge menu={menu} />
           <h1 className="mt-5 text-5xl font-extrabold leading-[0.95] sm:text-6xl lg:text-7xl">
             Comida caseira,{" "}
@@ -130,7 +126,7 @@ function Hero({ menu }: { menu?: Menu | undefined }) {
                 {[0, 1, 2, 3].map((i) => <Star key={i} className="size-4 fill-current" />)}
                 <Star className="size-4 fill-current opacity-40" />
               </span>
-              <span><strong>4,4</strong> <span className="text-ink-muted">(166 avaliações no Google)</span></span>
+              <span><strong>4,5</strong> <span className="text-ink-muted">(32 avaliações no Google)</span></span>
             </a>
           </div>
         </div>
@@ -278,7 +274,7 @@ function Location({ menu }: { menu?: Menu | undefined }) {
       <div className="mx-auto grid max-w-6xl gap-8 px-4 sm:px-6 md:grid-cols-2">
         <div className="flex flex-col gap-5">
           <p className="font-script text-2xl text-leaf">vem buscar ou a gente leva</p>
-          <h2 className="text-3xl font-extrabold sm:text-4xl">Fogão da Cassia – Comida Caseira</h2>
+          <h2 className="text-3xl font-extrabold sm:text-4xl">V&M Restaurante Sabor Nobre</h2>
           <p className="flex gap-3 text-ink-muted"><MapPin className="mt-0.5 size-5 shrink-0 text-primary" /> {ADDRESS}</p>
           <p className="flex gap-3 text-ink-muted"><Clock className="mt-0.5 size-5 shrink-0 text-primary" /> {menu?.settings.hours_text ?? "…"}</p>
           <p className="flex gap-3 text-ink-muted"><MessageCircle className="mt-0.5 size-5 shrink-0 text-primary" /> WhatsApp {WHATSAPP_DISPLAY}</p>
@@ -288,13 +284,13 @@ function Location({ menu }: { menu?: Menu | undefined }) {
               <a href={`https://www.google.com/maps/dir/?api=1&destination=${MAPS_QUERY}`} target="_blank" rel="noopener noreferrer"><Navigation /> Como chegar</a>
             </Button>
             <Button asChild variant="whatsapp" size="lg" className="h-12">
-              <a href={whatsappLink("Olá! Vim pelo site do Fogão da Cassia.")} target="_blank" rel="noopener noreferrer"><MessageCircle /> Conversar no WhatsApp</a>
+              <a href={whatsappLink("Olá! Vim pelo site do V&M Sabor Nobre.")} target="_blank" rel="noopener noreferrer"><MessageCircle /> Conversar no WhatsApp</a>
             </Button>
           </div>
         </div>
         <div className="overflow-hidden rounded-3xl border border-ink-foreground/10">
           <iframe
-            title="Mapa – Fogão da Cassia"
+            title="Mapa – V&M Sabor Nobre"
             src={`https://www.google.com/maps?q=${MAPS_QUERY}&output=embed`}
             className="h-80 w-full md:h-full md:min-h-96"
             loading="lazy"
@@ -310,7 +306,7 @@ function Footer() {
   return (
     <footer className="bg-ink pb-8 text-center text-xs text-ink-muted">
       <div className="mx-auto max-w-6xl border-t border-ink-foreground/10 px-4 pt-6">
-        © {new Date().getFullYear()} Fogão da Cassia · Vinhedo – SP ·{" "}
+        © {new Date().getFullYear()} V&M Sabor Nobre · Valinhos – SP ·{" "}
         <a href="/admin" className="underline-offset-2 hover:underline">Área do proprietário</a>
       </div>
     </footer>
